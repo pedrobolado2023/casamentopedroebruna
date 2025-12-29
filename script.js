@@ -1,3 +1,142 @@
+// Global Functions (defined at top to ensure scope visibility)
+
+// Gift Selection Logic - Opens Modal
+function selectGift(giftName, giftId) {
+    const modal = document.getElementById('gift-modal');
+    const modalTitle = document.getElementById('modal-gift-name');
+    const giftInput = document.getElementById('gift-item');
+
+    if (modal && modalTitle && giftInput) {
+        modalTitle.innerText = `Presentear com: ${giftName}`;
+        giftInput.value = giftName;
+        // Store the ID for the API call
+        giftInput.dataset.id = giftId;
+
+        modal.classList.add('active');
+    }
+}
+
+// Handle Dropdown Selection
+function handleGiftSelection() {
+    const selector = document.getElementById('gift-selector');
+    const selectedOption = selector.options[selector.selectedIndex];
+
+    if (!selector.value) {
+        showToast("Por favor, selecione um presente na lista.");
+        return;
+    }
+
+    if (selectedOption.disabled) {
+        showToast("Este presente já foi escolhido por outra pessoa.");
+        return;
+    }
+
+    selectGift(selectedOption.text, selector.value);
+}
+
+function markGiftAsTaken(id) {
+    // Handle Dropdown Options
+    const selector = document.getElementById('gift-selector');
+    if (selector) {
+        const option = selector.querySelector(`option[value="${id}"]`);
+        if (option) {
+            option.disabled = true;
+            option.innerText = `${option.innerText} (Já escolhido)`;
+        }
+    }
+
+    // Handle Cards (like Honeymoon)
+    const giftCard = document.querySelector(`.gift-card[data-id="${id}"]`);
+    if (giftCard && id === 'lua_mel') {
+        giftCard.classList.add('taken');
+        const btn = giftCard.querySelector('button');
+        if (btn) btn.innerText = "Já Escolhido";
+    }
+}
+
+// Toast Notification Helper
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.innerText = message;
+    toast.classList.remove('hidden');
+
+    setTimeout(() => {
+        toast.classList.add('hidden');
+    }, 4000);
+}
+
+// Pix Modal Logic
+function openPixModal() {
+    const pixModal = document.getElementById('pix-modal');
+    if (pixModal) {
+        pixModal.classList.add('active');
+    }
+}
+
+function copyPixCode() {
+    const pixCode = document.getElementById('pix-code-text').innerText;
+
+    // Fallback function for older browsers or non-secure contexts
+    const copyWithFallback = (text) => {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed'; // Avoid scrolling to bottom
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
+                showToast("Código Pix copiado com sucesso!");
+            } else {
+                showToast("Erro ao copiar código Pix. Tente manualmente.");
+            }
+        } catch (err) {
+            console.error('Erro no fallback:', err);
+            showToast("Erro ao copiar. Tente selecionar e copiar manualmente.");
+        }
+
+        document.body.removeChild(textarea);
+    };
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(pixCode).then(() => {
+            showToast("Código Pix copiado com sucesso!");
+        }).catch(err => {
+            console.error('Erro ao copiar (API):', err);
+            // Try fallback if API fails
+            copyWithFallback(pixCode);
+        });
+    } else {
+        // Use fallback immediately if Clipboard API is not available
+        copyWithFallback(pixCode);
+    }
+}
+
+function fetchGiftStatus() {
+    fetch(SHEETDB_URL)
+        .then(response => response.json())
+        .then(data => {
+            console.log("Gift Data:", data);
+            data.forEach(item => {
+                if (item.status !== 'disponivel') {
+                    markGiftAsTaken(item.id);
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching gifts:', error));
+}
+
+// Ensure global access
+window.selectGift = selectGift;
+window.handleGiftSelection = handleGiftSelection;
+window.markGiftAsTaken = markGiftAsTaken;
+window.openPixModal = openPixModal;
+window.copyPixCode = copyPixCode;
+
+// Main Execution
 document.addEventListener('DOMContentLoaded', () => {
 
     // Smooth scrolling for anchor links
@@ -135,143 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function fetchGiftStatus() {
-        fetch(SHEETDB_URL)
-            .then(response => response.json())
-            .then(data => {
-                console.log("Gift Data:", data);
-                data.forEach(item => {
-                    if (item.status !== 'disponivel') {
-                        markGiftAsTaken(item.id);
-                    }
-                });
-            })
-            .catch(error => console.error('Error fetching gifts:', error));
-    }
-
-    // Expose functions globally immediately
-    window.selectGift = selectGift;
-    window.handleGiftSelection = handleGiftSelection;
-    window.markGiftAsTaken = markGiftAsTaken;
-});
-
-// Gift Selection Logic - Opens Modal
-function selectGift(giftName, giftId) {
-    const modal = document.getElementById('gift-modal');
-    const modalTitle = document.getElementById('modal-gift-name');
-    const giftInput = document.getElementById('gift-item');
-
-    if (modal && modalTitle && giftInput) {
-        modalTitle.innerText = `Presentear com: ${giftName}`;
-        giftInput.value = giftName;
-        // Store the ID for the API call
-        giftInput.dataset.id = giftId;
-
-        modal.classList.add('active');
-    }
-}
-
-// Handle Dropdown Selection
-function handleGiftSelection() {
-    const selector = document.getElementById('gift-selector');
-    const selectedOption = selector.options[selector.selectedIndex];
-
-    if (!selector.value) {
-        showToast("Por favor, selecione um presente na lista.");
-        return;
-    }
-
-    if (selectedOption.disabled) {
-        showToast("Este presente já foi escolhido por outra pessoa.");
-        return;
-    }
-
-    selectGift(selectedOption.text, selector.value);
-}
-
-function markGiftAsTaken(id) {
-    // Handle Dropdown Options
-    const selector = document.getElementById('gift-selector');
-    if (selector) {
-        const option = selector.querySelector(`option[value="${id}"]`);
-        if (option) {
-            option.disabled = true;
-            option.innerText = `${option.innerText} (Já escolhido)`;
-        }
-    }
-
-    // Handle Cards (like Honeymoon)
-    const giftCard = document.querySelector(`.gift-card[data-id="${id}"]`);
-    if (giftCard && id === 'lua_mel') {
-        giftCard.classList.add('taken');
-        const btn = giftCard.querySelector('button');
-        if (btn) btn.innerText = "Já Escolhido";
-    }
-}
-
-// Toast Notification Helper
-function showToast(message) {
-    const toast = document.getElementById('toast');
-    toast.innerText = message;
-    toast.classList.remove('hidden');
-
-    setTimeout(() => {
-        toast.classList.add('hidden');
-    }, 4000);
-}
-
-// Pix Modal Logic
-function openPixModal() {
-    const pixModal = document.getElementById('pix-modal');
-    if (pixModal) {
-        pixModal.classList.add('active');
-    }
-}
-
-function copyPixCode() {
-    const pixCode = document.getElementById('pix-code-text').innerText;
-
-    // Fallback function for older browsers or non-secure contexts
-    const copyWithFallback = (text) => {
-        const textarea = document.createElement('textarea');
-        textarea.value = text;
-        textarea.style.position = 'fixed'; // Avoid scrolling to bottom
-        textarea.style.opacity = '0';
-        document.body.appendChild(textarea);
-        textarea.focus();
-        textarea.select();
-
-        try {
-            const successful = document.execCommand('copy');
-            if (successful) {
-                showToast("Código Pix copiado com sucesso!");
-            } else {
-                showToast("Erro ao copiar código Pix. Tente manualmente.");
-            }
-        } catch (err) {
-            console.error('Erro no fallback:', err);
-            showToast("Erro ao copiar. Tente selecionar e copiar manualmente.");
-        }
-
-        document.body.removeChild(textarea);
-    };
-
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(pixCode).then(() => {
-            showToast("Código Pix copiado com sucesso!");
-        }).catch(err => {
-            console.error('Erro ao copiar (API):', err);
-            // Try fallback if API fails
-            copyWithFallback(pixCode);
-        });
-    } else {
-        // Use fallback immediately if Clipboard API is not available
-        copyWithFallback(pixCode);
-    }
-}
-
-// Add event listeners for Pix Modal closing
-document.addEventListener('DOMContentLoaded', () => {
+    // Add event listeners for Pix Modal closing
     const pixModal = document.getElementById('pix-modal');
     const closePixBtn = document.querySelector('.dialog-close-pix');
 

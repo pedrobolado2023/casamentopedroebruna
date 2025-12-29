@@ -1,5 +1,9 @@
 // Global Functions (defined at top to ensure scope visibility)
 
+// Configuration
+const EMAIL_TARGET = "https://formsubmit.co/ajax/pedrohenriquebonfim156@gmail.com";
+const SHEETDB_URL = "https://sheetdb.io/api/v1/1s3fjdvm70pve";
+
 // Gift Selection Logic - Opens Modal
 function selectGift(giftName, giftId) {
     const modal = document.getElementById('gift-modal');
@@ -149,9 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Configuration
-    const EMAIL_TARGET = "https://formsubmit.co/ajax/pedrohenriquebonfim156@gmail.com";
-    const SHEETDB_URL = "https://sheetdb.io/api/v1/1s3fjdvm70pve";
+    // Configuration (Moved to top of file)
 
     // Load Gift Status on Start
     fetchGiftStatus();

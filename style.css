@@ -1,0 +1,459 @@
+:root {
+    /* Color Palette */
+    --color-primary: #D4A373;
+    /* Champagne/Goldish */
+    --color-secondary: #FAEDCD;
+    /* Light Cream */
+    --color-accent: #E0E1DD;
+    /* Soft Grey/Silver */
+    --color-text: #4A4A4A;
+    /* Dark Grey */
+    --color-heading: #2C3E50;
+    --color-white: #FFFFFF;
+    --color-bg: #FEFAFA;
+    /* Very light pink/white */
+
+    /* Fonts */
+    --font-heading: 'Great Vibes', cursive;
+    --font-body: 'Outfit', sans-serif;
+
+    /* Spacing */
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: --font-body, sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+    font-family: 'Outfit', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    color: var(--color-heading);
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: var(--spacing-lg) 0;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+    position: relative;
+    background-attachment: fixed;
+    /* Parallax effect */
+}
+
+/* Fallback if image not loaded yet */
+.hero {
+    background-color: var(--color-primary);
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.couple-names {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.couple-names span {
+    font-size: 3rem;
+    vertical-align: middle;
+}
+
+.date {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.venue {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 2px solid var(--color-primary);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    border-color: var(--color-white);
+}
+
+.cta-button:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border-color: var(--color-white);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+/* Gallery - Minimalist Frames */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+.frame {
+    background-color: var(--color-white);
+    padding: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.frame:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.frame:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.frame:hover {
+    transform: rotate(0deg) scale(1.02);
+    z-index: 10;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 350px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+    display: block;
+    filter: sepia(10%);
+    /* Slight vintage touch */
+}
+
+/* Form Styles */
+.wedding-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid var(--color-primary);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--color-text);
+    color: var(--color-white);
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: var(--color-primary);
+}
+
+/* Gift Registry */
+.gifts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.gift-card {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: translateY 0.3s;
+    border: 1px solid transparent;
+}
+
+.gift-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-secondary);
+}
+
+.gift-card h3 {
+    font-family: var(--font-body);
+    /* Modern font for card titles */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+}
+
+.gift-card p {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1.5rem;
+}
+
+.gift-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    background: transparent;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+}
+
+.gift-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.gift-btn.primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.gift-btn.primary:hover {
+    background: #c38d5c;
+}
+
+.gift-card.taken {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(100%);
+    position: relative;
+}
+
+.gift-card.taken::after {
+    content: 'Indisponível';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-secondary);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    color: #666;
+}
+
+/* Utilities */
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 3000;
+    animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--color-white);
+    padding: 2.5rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    border-top: 5px solid var(--color-primary);
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+}
+
+.close-modal:hover {
+    color: var(--color-text);
+}
+
+.modal h3 {
+    margin-bottom: 0.5rem;
+    font-family: var(--font-body);
+    color: var(--color-primary);
+}
+
+.modal p {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .couple-names {
+        font-size: 3.5rem;
+    }
+
+    .section-title {
+        font-size: 2.8rem;
+    }
+}

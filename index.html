@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro & Bruna | 19.09.2026</title>
+    <meta name="description" content="Confirme sua presença no casamento de Pedro e Bruna.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="couple-names">Pedro <span>&</span> Bruna</h1>
+            <p class="date">19 de Setembro de 2026</p>
+            <p class="venue">Vamos nos casar!</p>
+            <div class="hero-buttons">
+                <a href="#rsvp" class="cta-button">Confirmar Presença</a>
+                <a href="#gifts" class="cta-button secondary">Lista de Presentes</a>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </header>
+
+    <main>
+        <section id="our-story" class="section">
+            <div class="container">
+                <h2 class="section-title">Nossa História</h2>
+                <p class="section-subtitle">Um pouco sobre nós</p>
+
+                <div class="gallery-grid">
+                    <!-- Images will be placed here -->
+                    <div class="frame">
+                        <img src="placeholder-1.jpg" alt="Foto Pedro e Bruna 1" class="gallery-img">
+                    </div>
+                    <div class="frame">
+                        <img src="placeholder-2.jpg" alt="Foto Pedro e Bruna 2" class="gallery-img">
+                    </div>
+                    <div class="frame">
+                        <img src="placeholder-3.jpg" alt="Foto Pedro e Bruna 3" class="gallery-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rsvp" class="section rsvp-section">
+            <div class="container">
+                <h2 class="section-title">Confirme sua presença!</h2>
+                <p class="section-subtitle">Sua presença é muito importante para nós!</p>
+
+                <form id="rsvp-form" class="wedding-form">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required placeholder="Seu nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefone / WhatsApp</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(XX) XXXXX-XXXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="attendance">Confirmar Presença?</label>
+                        <select id="attendance" name="attendance" required>
+                            <option value="">Selecione...</option>
+                            <option value="sim">Sim, estarei lá!</option>
+                            <option value="nao">Infelizmente não poderei ir</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guests">Número de Acompanhantes (incluindo você)</label>
+                        <input type="number" id="guests" name="guests" min="1" value="1">
+                    </div>
+
+                    <button type="submit" class="submit-btn">Enviar Confirmação</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="gifts" class="section">
+            <div class="container">
+                <h2 class="section-title">Lista de Presentes</h2>
+                <p class="section-subtitle">Se desejar nos presentear, fique à vontade para escolher uma opção abaixo ou
+                    visitar nossa lista.</p>
+
+                <div class="gifts-grid">
+                    <!-- Magalu Link -->
+                    <div class="gift-card special-gift">
+                        <h3>Lista Magalu</h3>
+                        <p>Acesse nossa lista completa de presentes no site da Magalu.</p>
+                        <a href="https://www.magazineluiza.com.br" target="_blank" class="gift-btn primary">Ver Lista
+                            Magalu</a>
+                    </div>
+
+                    <!-- Manual select items -->
+                    <div class="gift-card" data-id="jogo_jantar">
+                        <h3>Jogo de Jantar</h3>
+                        <p>Para nossos jantares especiais.</p>
+                        <button class="gift-btn" onclick="selectGift('Jogo de Jantar', 'jogo_jantar')">Vou presentear
+                            com este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="cafeteira">
+                        <h3>Cafeteira</h3>
+                        <p>Para começar o dia com energia.</p>
+                        <button class="gift-btn" onclick="selectGift('Cafeteira', 'cafeteira')">Vou presentear com
+                            este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="liquidificador">
+                        <h3>Liquidificador</h3>
+                        <p>Essencial para nossa cozinha.</p>
+                        <button class="gift-btn" onclick="selectGift('Liquidificador', 'liquidificador')">Vou presentear
+                            com este</button>
+                    </div>
+
+                    <!-- Novos Presentes -->
+                    <div class="gift-card" data-id="aparelho_jantar">
+                        <h3>Aparelho de Jantar</h3>
+                        <p>Para servir com elegância.</p>
+                        <button class="gift-btn" onclick="selectGift('Aparelho de Jantar', 'aparelho_jantar')">Vou
+                            presentear com este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="conjunto_talheres">
+                        <h3>Conjunto de talheres</h3>
+                        <p>Peças essenciais para o dia a dia.</p>
+                        <button class="gift-btn" onclick="selectGift('Conjunto de talheres', 'conjunto_talheres')">Vou
+                            presentear com este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="jogo_copos_tacas">
+                        <h3>Jogo de copos e taças</h3>
+                        <p>Para brindarmos momentos especiais.</p>
+                        <button class="gift-btn" onclick="selectGift('Jogo de copos e taças', 'jogo_copos_tacas')">Vou
+                            presentear com este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="fritadeira_eletrica">
+                        <h3>Fritadeira elétrica (Airfryer)</h3>
+                        <p>Praticidade e saúde na cozinha.</p>
+                        <button class="gift-btn" onclick="selectGift('Fritadeira elétrica', 'fritadeira_eletrica')">Vou
+                            presentear com este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="robo_aspirador">
+                        <h3>Robô aspirador de pó</h3>
+                        <p>Para manter a casa sempre limpa.</p>
+                        <button class="gift-btn" onclick="selectGift('Robô aspirador de pó', 'robo_aspirador')">Vou
+                            presentear com este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="batedeira_planetaria">
+                        <h3>Batedeira planetária</h3>
+                        <p>Para nossas aventuras culinárias.</p>
+                        <button class="gift-btn"
+                            onclick="selectGift('Batedeira planetária', 'batedeira_planetaria')">Vou presentear com
+                            este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="jogo_panelas">
+                        <h3>Jogo de panelas</h3>
+                        <p>O coração da nossa cozinha.</p>
+                        <button class="gift-btn" onclick="selectGift('Jogo de panelas', 'jogo_panelas')">Vou presentear
+                            com este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="conjunto_lencois">
+                        <h3>Conjunto de lençóis</h3>
+                        <p>Conforto para nosso descanso.</p>
+                        <button class="gift-btn" onclick="selectGift('Conjunto de lençóis', 'conjunto_lencois')">Vou
+                            presentear com este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="jogo_toalhas_banho">
+                        <h3>Jogo de toalhas de banho</h3>
+                        <p>Maciez e conforto.</p>
+                        <button class="gift-btn"
+                            onclick="selectGift('Jogo de toalhas de banho', 'jogo_toalhas_banho')">Vou presentear com
+                            este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="edredom_manta">
+                        <h3>Edredom ou Manta</h3>
+                        <p>Para os dias mais frios.</p>
+                        <button class="gift-btn" onclick="selectGift('Edredom ou Manta', 'edredom_manta')">Vou
+                            presentear com este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="alexa">
+                        <h3>Alexa</h3>
+                        <p>Tecnologia para nos ajudar em casa.</p>
+                        <button class="gift-btn" onclick="selectGift('Alexa', 'alexa')">Vou presentear com este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="jogo_facas">
+                        <h3>Jogo de facas</h3>
+                        <p>Precisão no preparo das refeições.</p>
+                        <button class="gift-btn" onclick="selectGift('Jogo de facas', 'jogo_facas')">Vou presentear com
+                            este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="processador_alimentos">
+                        <h3>Processador de alimentos</h3>
+                        <p>Agilidade nas receitas.</p>
+                        <button class="gift-btn"
+                            onclick="selectGift('Processador de alimentos', 'processador_alimentos')">Vou presentear com
+                            este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="microondas">
+                        <h3>Micro-ondas com grill</h3>
+                        <p>Rapidez e sabor.</p>
+                        <button class="gift-btn" onclick="selectGift('Micro-ondas com grill', 'microondas')">Vou
+                            presentear com este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="fruteira_mesa">
+                        <h3>Fruteira de mesa</h3>
+                        <p>Organização e beleza.</p>
+                        <button class="gift-btn" onclick="selectGift('Fruteira de mesa', 'fruteira_mesa')">Vou
+                            presentear com este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="sanduicheira">
+                        <h3>Sanduicheira</h3>
+                        <p>Para lanches rápidos.</p>
+                        <button class="gift-btn" onclick="selectGift('Sanduicheira', 'sanduicheira')">Vou presentear com
+                            este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="purificador_agua">
+                        <h3>Purificador de água</h3>
+                        <p>Água pura e saudável sempre.</p>
+                        <button class="gift-btn" onclick="selectGift('Purificador de água', 'purificador_agua')">Vou
+                            presentear com este</button>
+                    </div>
+
+                    <div class="gift-card" data-id="lua_mel">
+                        <h3>Cota de Lua de Mel</h3>
+                        <p>Ajude-nos a realizar nossa viagem dos sonhos.</p>
+                        <button class="gift-btn" onclick="openPixModal()">Contribuir</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Pedro & Bruna &copy; 2026</p>
+            <p>Feito com amor</p>
+        </div>
+    </footer>
+
+    <!-- Gift Confirmation Modal -->
+    <div id="gift-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modal-gift-name">Confirmar Presente</h3>
+            <p>Que alegria! Por favor, preencha seus dados para sabermos quem está nos presenteando.</p>
+
+            <form id="gift-form">
+                <input type="hidden" name="_subject" value="Novo Presente Selecionado!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" id="gift-item" name="Presente">
+
+                <div class="form-group">
+                    <label for="gift-name">Nome Completo</label>
+                    <input type="text" id="gift-name" name="Nome" required placeholder="Seu nome">
+                </div>
+
+                <div class="form-group">
+                    <label for="gift-phone">Telefone / WhatsApp</label>
+                    <input type="tel" id="gift-phone" name="Telefone" required placeholder="(XX) XXXXX-XXXX">
+                </div>
+
+                <button type="submit" class="submit-btn" id="confirm-gift-btn">Confirmar Presente</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pix Modal -->
+    <div id="pix-modal" class="modal">
+        <div class="modal-content" style="text-align: center;">
+            <span class="close-modal dialog-close-pix">&times;</span>
+            <h3 style="margin-bottom: 2rem;">Fazer Pix para os Noivos</h3>
+
+            <p>Escaneie o QR Code ou copie o código abaixo:</p>
+
+            <img src="assets/img/pix-qr-code.jpg" alt="QR Code Pix"
+                style="max-width: 250px; width: 100%; height: auto; margin: 0 auto 20px; display: block;">
+
+            <div class="pix-code-container" onclick="copyPixCode()"
+                style="background: #f8f9fa; padding: 15px; border-radius: 8px; cursor: pointer; border: 1px dashed #ccc; transition: all 0.2s;">
+                <p id="pix-code-text"
+                    style="word-break: break-all; font-family: monospace; font-size: 0.8rem; margin: 0; color: #555;">
+                    00020126580014br.gov.bcb.pix01367b4b9ddb-80b9-409f-9f1f-42e76ff2fd455204000053039865802BR5920Bruna
+                    Moreira Campos6009Sao Paulo610901227-20062230519daqr65749142789203963041D81</p>
+                <p
+                    style="text-align: center; color: var(--color-primary); font-size: 0.8rem; margin-top: 10px; font-weight: bold;">
+                    (Clique para copiar)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

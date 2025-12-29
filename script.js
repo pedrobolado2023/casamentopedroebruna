@@ -149,31 +149,65 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Error fetching gifts:', error));
     }
 
+    // Gift Selection Logic - Opens Modal
+    function selectGift(giftName, giftId) {
+        const modal = document.getElementById('gift-modal');
+        const modalTitle = document.getElementById('modal-gift-name');
+        const giftInput = document.getElementById('gift-item');
+
+        if (modal && modalTitle && giftInput) {
+            modalTitle.innerText = `Presentear com: ${giftName}`;
+            giftInput.value = giftName;
+            // Store the ID for the API call
+            giftInput.dataset.id = giftId;
+
+            modal.classList.add('active');
+        }
+    }
+
+    // Handle Dropdown Selection
+    function handleGiftSelection() {
+        const selector = document.getElementById('gift-selector');
+        const selectedOption = selector.options[selector.selectedIndex];
+
+        if (!selector.value) {
+            showToast("Por favor, selecione um presente na lista.");
+            return;
+        }
+
+        if (selectedOption.disabled) {
+            showToast("Este presente já foi escolhido por outra pessoa.");
+            return;
+        }
+
+        selectGift(selectedOption.text, selector.value);
+    }
+
     function markGiftAsTaken(id) {
+        // Handle Dropdown Options
+        const selector = document.getElementById('gift-selector');
+        if (selector) {
+            const option = selector.querySelector(`option[value="${id}"]`);
+            if (option) {
+                option.disabled = true;
+                option.innerText = `${option.innerText} (Já escolhido)`;
+            }
+        }
+
+        // Handle Cards (like Honeymoon)
         const giftCard = document.querySelector(`.gift-card[data-id="${id}"]`);
-        if (giftCard) {
+        if (giftCard && id === 'lua_mel') { // Only strict check for honeymon or legacy cards
             giftCard.classList.add('taken');
             const btn = giftCard.querySelector('button');
             if (btn) btn.innerText = "Já Escolhido";
         }
     }
+
+    // Convert to global for HTML access
+    window.selectGift = selectGift;
+    window.handleGiftSelection = handleGiftSelection;
+    window.markGiftAsTaken = markGiftAsTaken; // Used by fetch loop
 });
-
-// Gift Selection Logic - Opens Modal
-function selectGift(giftName, giftId) {
-    const modal = document.getElementById('gift-modal');
-    const modalTitle = document.getElementById('modal-gift-name');
-    const giftInput = document.getElementById('gift-item');
-
-    if (modal && modalTitle && giftInput) {
-        modalTitle.innerText = `Presentear com: ${giftName}`;
-        giftInput.value = giftName;
-        // Store the ID for the API call
-        giftInput.dataset.id = giftId;
-
-        modal.classList.add('active');
-    }
-}
 
 // Toast Notification Helper
 function showToast(message) {

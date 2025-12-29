@@ -102,148 +102,43 @@
                             Magalu</a>
                     </div>
 
-                    <!-- Manual select items -->
-                    <div class="gift-card" data-id="jogo_jantar">
-                        <h3>Jogo de Jantar</h3>
-                        <p>Para nossos jantares especiais.</p>
-                        <button class="gift-btn" onclick="selectGift('Jogo de Jantar', 'jogo_jantar')">Vou presentear
-                            com este</button>
-                    </div>
+                    <!-- Manual List (Dropdown) -->
+                    <div class="gift-card" style="grid-column: 1 / -1;">
+                        <h3>Lista de Casamento</h3>
+                        <p>Escolha um presente da lista abaixo para nos presentear:</p>
 
-                    <div class="gift-card" data-id="cafeteira">
-                        <h3>Cafeteira</h3>
-                        <p>Para começar o dia com energia.</p>
-                        <button class="gift-btn" onclick="selectGift('Cafeteira', 'cafeteira')">Vou presentear com
-                            este</button>
-                    </div>
+                        <div
+                            style="max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+                            <select id="gift-selector" class="gift-dropdown"
+                                style="padding: 12px; border-radius: 4px; border: 1px solid #ddd; font-size: 1rem; width: 100%;">
+                                <option value="">Selecione um presente...</option>
+                                <option value="jogo_jantar">Jogo de Jantar</option>
+                                <option value="cafeteira">Cafeteira</option>
+                                <option value="liquidificador">Liquidificador</option>
+                                <option value="aparelho_jantar">Aparelho de Jantar</option>
+                                <option value="conjunto_talheres">Conjunto de talheres</option>
+                                <option value="jogo_copos_tacas">Jogo de copos e taças</option>
+                                <option value="fritadeira_eletrica">Fritadeira elétrica (Airfryer)</option>
+                                <option value="robo_aspirador">Robô aspirador de pó</option>
+                                <option value="batedeira_planetaria">Batedeira planetária</option>
+                                <option value="jogo_panelas">Jogo de panelas</option>
+                                <option value="conjunto_lencois">Conjunto de lençóis</option>
+                                <option value="jogo_toalhas_banho">Jogo de toalhas de banho</option>
+                                <option value="edredom_manta">Edredom ou Manta</option>
+                                <option value="alexa">Alexa</option>
+                                <option value="jogo_facas">Jogo de facas</option>
+                                <option value="processador_alimentos">Processador de alimentos</option>
+                                <option value="microondas">Micro-ondas com grill</option>
+                                <option value="fruteira_mesa">Fruteira de mesa</option>
+                                <option value="sanduicheira">Sanduicheira</option>
+                                <option value="purificador_agua">Purificador de água</option>
+                            </select>
 
-                    <div class="gift-card" data-id="liquidificador">
-                        <h3>Liquidificador</h3>
-                        <p>Essencial para nossa cozinha.</p>
-                        <button class="gift-btn" onclick="selectGift('Liquidificador', 'liquidificador')">Vou presentear
-                            com este</button>
-                    </div>
-
-                    <!-- Novos Presentes -->
-                    <div class="gift-card" data-id="aparelho_jantar">
-                        <h3>Aparelho de Jantar</h3>
-                        <p>Para servir com elegância.</p>
-                        <button class="gift-btn" onclick="selectGift('Aparelho de Jantar', 'aparelho_jantar')">Vou
-                            presentear com este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="conjunto_talheres">
-                        <h3>Conjunto de talheres</h3>
-                        <p>Peças essenciais para o dia a dia.</p>
-                        <button class="gift-btn" onclick="selectGift('Conjunto de talheres', 'conjunto_talheres')">Vou
-                            presentear com este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="jogo_copos_tacas">
-                        <h3>Jogo de copos e taças</h3>
-                        <p>Para brindarmos momentos especiais.</p>
-                        <button class="gift-btn" onclick="selectGift('Jogo de copos e taças', 'jogo_copos_tacas')">Vou
-                            presentear com este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="fritadeira_eletrica">
-                        <h3>Fritadeira elétrica (Airfryer)</h3>
-                        <p>Praticidade e saúde na cozinha.</p>
-                        <button class="gift-btn" onclick="selectGift('Fritadeira elétrica', 'fritadeira_eletrica')">Vou
-                            presentear com este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="robo_aspirador">
-                        <h3>Robô aspirador de pó</h3>
-                        <p>Para manter a casa sempre limpa.</p>
-                        <button class="gift-btn" onclick="selectGift('Robô aspirador de pó', 'robo_aspirador')">Vou
-                            presentear com este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="batedeira_planetaria">
-                        <h3>Batedeira planetária</h3>
-                        <p>Para nossas aventuras culinárias.</p>
-                        <button class="gift-btn"
-                            onclick="selectGift('Batedeira planetária', 'batedeira_planetaria')">Vou presentear com
-                            este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="jogo_panelas">
-                        <h3>Jogo de panelas</h3>
-                        <p>O coração da nossa cozinha.</p>
-                        <button class="gift-btn" onclick="selectGift('Jogo de panelas', 'jogo_panelas')">Vou presentear
-                            com este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="conjunto_lencois">
-                        <h3>Conjunto de lençóis</h3>
-                        <p>Conforto para nosso descanso.</p>
-                        <button class="gift-btn" onclick="selectGift('Conjunto de lençóis', 'conjunto_lencois')">Vou
-                            presentear com este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="jogo_toalhas_banho">
-                        <h3>Jogo de toalhas de banho</h3>
-                        <p>Maciez e conforto.</p>
-                        <button class="gift-btn"
-                            onclick="selectGift('Jogo de toalhas de banho', 'jogo_toalhas_banho')">Vou presentear com
-                            este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="edredom_manta">
-                        <h3>Edredom ou Manta</h3>
-                        <p>Para os dias mais frios.</p>
-                        <button class="gift-btn" onclick="selectGift('Edredom ou Manta', 'edredom_manta')">Vou
-                            presentear com este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="alexa">
-                        <h3>Alexa</h3>
-                        <p>Tecnologia para nos ajudar em casa.</p>
-                        <button class="gift-btn" onclick="selectGift('Alexa', 'alexa')">Vou presentear com este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="jogo_facas">
-                        <h3>Jogo de facas</h3>
-                        <p>Precisão no preparo das refeições.</p>
-                        <button class="gift-btn" onclick="selectGift('Jogo de facas', 'jogo_facas')">Vou presentear com
-                            este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="processador_alimentos">
-                        <h3>Processador de alimentos</h3>
-                        <p>Agilidade nas receitas.</p>
-                        <button class="gift-btn"
-                            onclick="selectGift('Processador de alimentos', 'processador_alimentos')">Vou presentear com
-                            este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="microondas">
-                        <h3>Micro-ondas com grill</h3>
-                        <p>Rapidez e sabor.</p>
-                        <button class="gift-btn" onclick="selectGift('Micro-ondas com grill', 'microondas')">Vou
-                            presentear com este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="fruteira_mesa">
-                        <h3>Fruteira de mesa</h3>
-                        <p>Organização e beleza.</p>
-                        <button class="gift-btn" onclick="selectGift('Fruteira de mesa', 'fruteira_mesa')">Vou
-                            presentear com este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="sanduicheira">
-                        <h3>Sanduicheira</h3>
-                        <p>Para lanches rápidos.</p>
-                        <button class="gift-btn" onclick="selectGift('Sanduicheira', 'sanduicheira')">Vou presentear com
-                            este</button>
-                    </div>
-
-                    <div class="gift-card" data-id="purificador_agua">
-                        <h3>Purificador de água</h3>
-                        <p>Água pura e saudável sempre.</p>
-                        <button class="gift-btn" onclick="selectGift('Purificador de água', 'purificador_agua')">Vou
-                            presentear com este</button>
+                            <button id="gift-selector-btn" class="gift-btn primary" onclick="handleGiftSelection()"
+                                style="width: 100%;">
+                                Selecionar Presente
+                            </button>
+                        </div>
                     </div>
 
                     <div class="gift-card" data-id="lua_mel">

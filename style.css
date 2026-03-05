@@ -80,7 +80,7 @@ a {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('hero-bg-new.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('hero-bg-modern.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -105,7 +105,8 @@ a {
 .couple-names {
     font-size: 5rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: var(--color-white);
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.6), 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .couple-names span {

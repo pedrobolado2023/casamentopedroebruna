@@ -286,11 +286,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (pixModal) {
-        pixModal.addEventListener('click', (e) => {
-            if (e.target === pixModal) {
-                pixModal.classList.remove('active');
-            }
-        });
+    // Background Music Configuration
+    const music = document.getElementById('bg-music');
+    if (music) {
+        music.volume = 0.3; // Low background volume
+
+        // Function to start music on first user interaction (browser requirement)
+        const startMusic = () => {
+            music.play().catch(error => console.log("Erro ao iniciar música:", error));
+            // Remove listeners after first trigger
+            window.removeEventListener('click', startMusic);
+            window.removeEventListener('touchstart', startMusic);
+        };
+
+        window.addEventListener('click', startMusic);
+        window.addEventListener('touchstart', startMusic);
     }
 });

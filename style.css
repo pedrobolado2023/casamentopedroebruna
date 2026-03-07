@@ -478,6 +478,11 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+        /* Fix for mobile background image issues */
+    }
+
     .couple-names {
         font-size: 3.5rem;
     }

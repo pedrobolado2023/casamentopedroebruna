@@ -10,8 +10,11 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://formsubmit.co">
+    <link rel="dns-prefetch" href="https://sheetdb.io">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;600&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,7 +22,7 @@
 <body>
 
     <header class="hero">
-        <audio id="bg-music">
+        <audio id="bg-music" preload="none">
             <source src="until-i-found-you-choreografiafirst-dance.mp3" type="audio/mpeg">
         </audio>
         <div class="hero-content">
@@ -44,13 +47,22 @@
                 <div class="gallery-grid">
                     <!-- Images will be placed here -->
                     <div class="frame">
-                        <img src="placeholder-1.jpg" alt="Foto Pedro e Bruna 1" class="gallery-img">
+                        <picture>
+                            <source srcset="placeholder-1.webp" type="image/webp">
+                            <img src="placeholder-1.jpg" alt="Foto Pedro e Bruna 1" class="gallery-img" loading="lazy" decoding="async">
+                        </picture>
                     </div>
                     <div class="frame">
-                        <img src="placeholder-2.jpg" alt="Foto Pedro e Bruna 2" class="gallery-img">
+                        <picture>
+                            <source srcset="placeholder-2.webp" type="image/webp">
+                            <img src="placeholder-2.jpg" alt="Foto Pedro e Bruna 2" class="gallery-img" loading="lazy" decoding="async">
+                        </picture>
                     </div>
                     <div class="frame">
-                        <img src="placeholder-3.jpg" alt="Foto Pedro e Bruna 3" class="gallery-img">
+                        <picture>
+                            <source srcset="placeholder-3.webp" type="image/webp">
+                            <img src="placeholder-3.jpg" alt="Foto Pedro e Bruna 3" class="gallery-img" loading="lazy" decoding="async">
+                        </picture>
                     </div>
                 </div>
             </div>

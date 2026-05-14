@@ -190,13 +190,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const formData = new FormData(rsvpForm);
 
-            // Build SheetDB payload
+            // Build SheetDB payload - Using English keys to match the existing spreadsheet headers
             const data = {
-                nome: formData.get('name'),
-                telefone: formData.get('phone'),
-                presenca: formData.get('attendance'),
-                acompanhantes: formData.get('guests'),
-                data_confirmacao: new Date().toLocaleString('pt-BR')
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                attendance: formData.get('attendance'),
+                guests: formData.get('guests'),
+                date: new Date().toLocaleString('pt-BR')
             };
 
             fetch(RSVP_SHEETDB_URL, {

@@ -1,0 +1,368 @@
+{
+  "data": [
+    {
+      "id": "sim",
+      "nome_presente": "Sim, estarei lá!",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "nao",
+      "nome_presente": "Infelizmente não poderei ir",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "jogo_cama_queen_1",
+      "nome_presente": "Jogo de cama queen (Opção 1)",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "jogo_cama_queen_2",
+      "nome_presente": "Jogo de cama queen (Opção 2)",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "edredom_queen_1",
+      "nome_presente": "Edredom queen (Opção 1)",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "edredom_queen_2",
+      "nome_presente": "Edredom queen (Opção 2)",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "colcha_cobre_leito",
+      "nome_presente": "Colcha ou cobre-leito",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "protetor_colchao",
+      "nome_presente": "Protetor de colchão",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "manta_cama",
+      "nome_presente": "Manta para cama",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "jogo_cortinas",
+      "nome_presente": "Jogo de cortinas",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "jogo_toalhas_1",
+      "nome_presente": "Jogo de toalhas (Opção 1)",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "jogo_toalhas_2",
+      "nome_presente": "Jogo de toalhas (Opção 2)",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "toalha_rosto",
+      "nome_presente": "Toalha de rosto",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "aparelho_jantar_1",
+      "nome_presente": "Aparelho de jantar completo (Opção 1)",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "aparelho_jantar_2",
+      "nome_presente": "Aparelho de jantar completo (Opção 2)",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "tacas_vinho",
+      "nome_presente": "Jogo de taças de vinho",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "tacas_agua",
+      "nome_presente": "Jogo de taças de água",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "jogo_copos",
+      "nome_presente": "Jogo de copos",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "xicaras_cafe",
+      "nome_presente": "Jogo de xícaras de café",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "xicaras_cha",
+      "nome_presente": "Jogo de xícaras de chá",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "jogo_sobremesa",
+      "nome_presente": "Jogo de sobremesa",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "jogo_americano",
+      "nome_presente": "Jogo americano",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "toalha_mesa",
+      "nome_presente": "Toalha de mesa",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "faqueiro",
+      "nome_presente": "Faqueiro",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "jogo_talheres",
+      "nome_presente": "Jogo de talheres",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "facas_cozinha",
+      "nome_presente": "Jogo de facas de cozinha",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "utensilios_cozinha",
+      "nome_presente": "Jogo de utensílios (espátula, concha, escumadeira\n                                        etc.)",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "tigelas_bowls",
+      "nome_presente": "Jogo de tigelas ou bowls",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "potes_hermeticos",
+      "nome_presente": "Conjunto de potes herméticos",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "jogo_panelas",
+      "nome_presente": "Jogo de panelas",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "frigideira_antiaderente",
+      "nome_presente": "Frigideira antiaderente",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "panela_pressao",
+      "nome_presente": "Panela de pressão",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "assadeiras_quadradas",
+      "nome_presente": "Jogo de Assadeiras Quadradas",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "assadeiras_redondas",
+      "nome_presente": "Jogo de Assadeiras Redondas",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "marinex_com_tampa",
+      "nome_presente": "Conjunto de Marinex com tampa",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "marinex_sem_tampa",
+      "nome_presente": "Conjunto de Marinex sem tampa",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "liquidificador",
+      "nome_presente": "Liquidificador",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "batedeira",
+      "nome_presente": "Batedeira",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "cafeteira_eletrica",
+      "nome_presente": "Cafeteira elétrica",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "air_fryer",
+      "nome_presente": "Air fryer",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "sanduicheira_grill",
+      "nome_presente": "Sanduicheira ou grill",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "churrasqueira_eletrica",
+      "nome_presente": "Churrasqueira elétrica",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "torradeira",
+      "nome_presente": "Torradeira",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "mixer",
+      "nome_presente": "Mixer",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "processador_alimentos",
+      "nome_presente": "Processador de alimentos",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "panela_arroz",
+      "nome_presente": "Panela de Arroz Elétrica",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "ferro_passar",
+      "nome_presente": "Ferro de passar roupa",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "aspirador_po",
+      "nome_presente": "Aspirador de pó",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "ventilador",
+      "nome_presente": "Ventilador",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "forno_eletrico",
+      "nome_presente": "Forno elétrico",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "microondas",
+      "nome_presente": "Micro-ondas",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    },
+    {
+      "id": "lua_mel",
+      "nome_presente": "Cota de Lua de Mel",
+      "status": "disponivel",
+      "comprador_nome": "",
+      "comprador_telefone": ""
+    }
+  ]
+}

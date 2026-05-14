@@ -3,6 +3,7 @@
 // Configuration
 const EMAIL_TARGET = "https://formsubmit.co/ajax/pedrohenriquebonfim156@gmail.com";
 const SHEETDB_URL = "https://sheetdb.io/api/v1/1s3fjdvm70pve";
+const RSVP_SHEETDB_URL = "https://sheetdb.io/api/v1/gpikafcmd1lw9";
 
 // Gift Selection Logic - Opens Modal
 function selectGift(giftName, giftId) {
@@ -59,14 +60,15 @@ function markGiftAsTaken(id) {
 }
 
 // Toast Notification Helper
-function showToast(message) {
+function showToast(message, type = 'success') {
     const toast = document.getElementById('toast');
     toast.innerText = message;
-    toast.classList.remove('hidden');
+    toast.classList.remove('hidden', 'error');
+    if (type === 'error') toast.classList.add('error');
 
     setTimeout(() => {
         toast.classList.add('hidden');
-    }, 4000);
+    }, 5000);
 }
 
 // Pix Modal Logic
@@ -158,6 +160,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Gift Status on Start
     fetchGiftStatus();
 
+    // RSVP Form Interactivity: Hide/Show guests based on attendance
+    const attendanceSelect = document.getElementById('attendance');
+    const guestsGroup = document.getElementById('guests').parentElement;
+
+    if (attendanceSelect && guestsGroup) {
+        attendanceSelect.addEventListener('change', () => {
+            if (attendanceSelect.value === 'nao') {
+                guestsGroup.classList.add('hidden');
+                document.getElementById('guests').value = 0;
+            } else {
+                guestsGroup.classList.remove('hidden');
+                document.getElementById('guests').value = 1;
+            }
+        });
+    }
+
     // RSVP Form Handling
     const rsvpForm = document.getElementById('rsvp-form');
     if (rsvpForm) {
@@ -172,32 +190,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const formData = new FormData(rsvpForm);
 
-            // Build JSON payload (FormSubmit.co AJAX accepts JSON with CORS headers)
-            const payload = {
-                _subject: "Nova Confirmação de Presença - Casamento",
-                _template: "table",
-                _captcha: "false"
+            // Build SheetDB payload
+            const data = {
+                nome: formData.get('name'),
+                telefone: formData.get('phone'),
+                presenca: formData.get('attendance'),
+                acompanhantes: formData.get('guests'),
+                data_confirmacao: new Date().toLocaleString('pt-BR')
             };
-            for (const [key, value] of formData.entries()) {
-                payload[key] = value;
-            }
 
-            fetch(EMAIL_TARGET, {
+            fetch(RSVP_SHEETDB_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                 },
-                body: JSON.stringify(payload)
+                body: JSON.stringify({ data: [data] })
             })
                 .then(response => response.json())
                 .then(data => {
                     showToast("Obrigado! Sua presença foi confirmada com sucesso.");
                     rsvpForm.reset();
+                    if (attendanceSelect.value === 'nao') guestsGroup.classList.remove('hidden');
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    showToast("Houve um erro ao enviar. Por favor, tente novamente.");
+                    showToast("Houve um erro ao enviar para a planilha. Por favor, tente novamente.", "error");
                 })
                 .finally(() => {
                     submitBtn.innerText = originalText;
@@ -258,30 +276,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             });
 
-            // 2. Send Email via JSON (resolve CORS com FormSubmit.co)
-            const giftPayload = {
-                _subject: `Presente Escolhido: ${giftName}`,
-                _template: "table",
-                _captcha: "false",
-                presente: giftName,
-                nome: buyerName,
-                telefone: buyerPhone
-            };
-            for (const [key, value] of formData.entries()) {
-                if (!giftPayload[key]) giftPayload[key] = value;
-            }
-            const emailSend = fetch(EMAIL_TARGET, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify(giftPayload)
-            });
+            // 2. Send Email (Disabled as FormSubmit is reported down)
+            /*
+            const emailFormData = new FormData(giftForm);
+            ...
+            */
 
-            // Execute both
-            Promise.all([sheetUpdate, emailSend])
-                .then(([sheetRes, emailRes]) => {
+            // Since we only have SheetDB now, we resolve the promise based on sheetUpdate
+            sheetUpdate
+                .then(response => response.json())
+                .then(data => {
                     modal.classList.remove('active');
                     showToast(`Maravilha! Você marcou o presente: ${giftName}. Obrigado!`);
                     giftForm.reset();
@@ -291,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    showToast("Erro ao confirmar. Verifique se já não foi escolhido.");
+                    showToast("Erro ao confirmar o presente. Tente novamente mais tarde.", "error");
                 })
                 .finally(() => {
                     submitBtn.innerText = originalText;

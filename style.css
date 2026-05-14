@@ -30,11 +30,10 @@
 }
 
 body {
-    font-family: --font-body, sans-serif;
+    font-family: var(--font-body), sans-serif;
     color: var(--color-text);
     background-color: var(--color-bg);
     line-height: 1.6;
-    font-family: 'Outfit', sans-serif;
 }
 
 h1,
@@ -80,7 +79,7 @@ a {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('hero-bg-coffee.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('hero-bg-coffee.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -391,27 +390,62 @@ footer {
 
 .toast {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #333;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(44, 62, 80, 0.95);
+    backdrop-filter: blur(5px);
     color: #fff;
-    padding: 15px 25px;
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 16px 32px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     z-index: 3000;
-    animation: slideIn 0.3s ease forwards;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    border-left: 4px solid var(--color-primary);
+    transition: all 0.3s ease;
+}
+
+.toast.error {
+    border-left-color: #e74c3c;
 }
 
 @keyframes slideIn {
     from {
-        transform: translateY(100px);
+        transform: translateX(100px);
         opacity: 0;
     }
 
     to {
-        transform: translateY(0);
+        transform: translateX(0);
         opacity: 1;
     }
+}
+
+/* Form Group Transitions */
+.form-group {
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    max-height: 200px;
+}
+
+.form-group.hidden {
+    max-height: 0;
+    margin-bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    display: block; /* Overwrite utility if needed */
+}
+
+/* Page Animations */
+body {
+    animation: fadeInPage 1s ease-out;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Modal Styles */

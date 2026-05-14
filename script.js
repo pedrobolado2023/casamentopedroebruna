@@ -207,11 +207,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify([data])
             })
-                .then(response => response.json())
-                .then(data => {
-                    showToast("Obrigado! Sua presença foi confirmada com sucesso.");
-                    rsvpForm.reset();
-                    if (attendanceSelect.value === 'nao') guestsGroup.classList.remove('hidden');
+                .then(async response => {
+                    const result = await response.json();
+                    if (response.ok) {
+                        showToast("Obrigado! Sua presença foi confirmada com sucesso.");
+                        rsvpForm.reset();
+                        if (attendanceSelect.value === 'nao') guestsGroup.classList.remove('hidden');
+                    } else {
+                        console.error('SheetDB Error:', result);
+                        throw new Error(result.error || "Erro ao salvar na planilha");
+                    }
                 })
                 .catch(error => {
                     console.error('Error:', error);

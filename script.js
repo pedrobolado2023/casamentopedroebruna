@@ -172,14 +172,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const formData = new FormData(rsvpForm);
 
-            // Add custom subject
-            formData.append("_subject", "Nova Confirmação de Presença - Casamento");
-            formData.append("_template", "table");
-            formData.append("_captcha", "false");
+            // Build JSON payload (FormSubmit.co AJAX accepts JSON with CORS headers)
+            const payload = {
+                _subject: "Nova Confirmação de Presença - Casamento",
+                _template: "table",
+                _captcha: "false"
+            };
+            for (const [key, value] of formData.entries()) {
+                payload[key] = value;
+            }
 
             fetch(EMAIL_TARGET, {
                 method: "POST",
-                body: formData
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(payload)
             })
                 .then(response => response.json())
                 .then(data => {
@@ -249,10 +258,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             });
 
-            // 2. Send Email
+            // 2. Send Email via JSON (resolve CORS com FormSubmit.co)
+            const giftPayload = {
+                _subject: `Presente Escolhido: ${giftName}`,
+                _template: "table",
+                _captcha: "false",
+                presente: giftName,
+                nome: buyerName,
+                telefone: buyerPhone
+            };
+            for (const [key, value] of formData.entries()) {
+                if (!giftPayload[key]) giftPayload[key] = value;
+            }
             const emailSend = fetch(EMAIL_TARGET, {
                 method: "POST",
-                body: formData
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(giftPayload)
             });
 
             // Execute both
